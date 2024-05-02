@@ -1,6 +1,7 @@
 const fs = require('fs');
 const JSZip = require('jszip');
-const PptxGenJS = require('pptxgenjs');
+const pptxgen = require('pptxgenjs');
+const xml2js = require('xml2js');
 
 async function main() {
   try {
@@ -21,6 +22,9 @@ async function main() {
     let xmlString = await xmlFile.async('string');
     console.log('XML dosyası okundu');
 
+    xmlString = xmlString.replace('DİJİTAL', 'Yeni Metin');
+
+    console.log('xml dosyası değiştirildi');
   } catch (err) {
     console.error(err);
   }
